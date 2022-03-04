@@ -1,0 +1,111 @@
+<body>
+  <mat-toolbar color="primary">
+    <span>Ideias de Personagens</span>
+  </mat-toolbar>
+
+  <table>
+    <tr>
+      <th>Função</th>
+      <th>Primária</th>
+      <th>Secundaria</th>
+      <th>Magia</th>
+      <th>Orientação</th>
+      <th>Orientação 2</th>
+      <th>Equipamento</th>
+      <th>Operação</th>
+    </tr>
+    <tr *ngFor="let produto of lista_personagens; let i = index">
+      <td>{{ produto.getFuncao() }}</td>
+      <td>{{ produto.getPrincipal() }}</td>
+      <td>{{ produto.getSecundario() }}</td>
+      <td>{{ produto.getMagia() }}</td>
+      <td>{{ produto.getOrientacao() }}</td>
+      <td>{{ produto.getOrientacao2() }}</td>
+      <td>{{ produto.getEquipamento() }}</td>
+      <td>
+        <button (click)='editar(i)' mat-fab color="accent">Editar</button>
+        <button (click)='excluir(i)' mat-fab color='warn'>Excluir</button>
+      </td>
+    </tr>
+  </table>
+
+
+
+  <mat-toolbar color="primary">
+    <span *ngIf="!edit">Criação de Nova Ideia</span>
+    <span *ngIf="edit">Editar Ideia</span>
+  </mat-toolbar>
+
+  <mat-form-field style="background-color: rgb(8, 8, 61)!important;" appearance="fill">
+    <mat-label>Ideia principal</mat-label>
+    <mat-select [(ngModel)]="primaria" required>
+      <mat-option *ngFor="let first of principal" [value]="first.value">
+        {{ first.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+
+  <mat-form-field style="background-color: rgb(8, 8, 61)!important;" appearance="fill">
+    <mat-label>Ideia secundaria</mat-label>
+    <mat-select [(ngModel)]="secundaria" required>
+      <mat-option *ngFor="let first of secundarias" [value]="first.value">
+        {{ first.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+
+  <mat-form-field style="background-color: rgb(8, 8, 61)!important;" appearance="fill">
+    <mat-label>Magia</mat-label>
+    <mat-select [(ngModel)]="magia" required>
+      <mat-option *ngFor="let first of magias" [value]="first.value">
+        {{ first.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+
+  <mat-form-field style="background-color: rgb(8, 8, 61)!important;" appearance="fill">
+    <mat-label>Orientacao</mat-label>
+    <mat-select [(ngModel)]="orientacao" required>
+      <mat-option *ngFor="let first of orientacaos" [value]="first.value">
+        {{ first.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+  
+  <mat-form-field style="background-color: rgb(8, 8, 61)!important;" appearance="fill">
+    <mat-label>Orientacao 2</mat-label>
+    <mat-select [(ngModel)]="orientacao2" required>
+      <mat-option *ngFor="let first of orientacaos2" [value]="first.value">
+        {{ first.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+
+  <mat-form-field style="background-color: rgb(8, 8, 61)!important;" appearance="fill">
+    <mat-label>Funcao</mat-label>
+    <mat-select [(ngModel)]="funcao" required>
+      <mat-option *ngFor="let first of funcaos" [value]="first.value">
+        {{ first.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+
+  <mat-form-field style="background-color: rgb(8, 8, 61)!important;" appearance="fill">
+    <mat-label>Equipamento</mat-label>
+    <mat-select [(ngModel)]="equipamento" required>
+      <mat-option *ngFor="let first of equipamentos" [value]="first.value">
+        {{ first.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+
+  <button mat-raised-button *ngIf="!edit" (click)="add()">Criar</button>
+  <button mat-raised-button *ngIf="edit" (click)="add()">Salvar</button>
+</body>
