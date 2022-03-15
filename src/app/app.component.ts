@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Personagem } from './modules/personagem/personagem.module';
+import { Personagem } from './models/personagem.module';
 import { MatTable } from '@angular/material/table';
 
 interface Selecao {
