@@ -1,0 +1,32 @@
+<body>
+  <mat-toolbar color="primary">
+    <span>Ideias de Personagens</span>
+  </mat-toolbar>
+
+  <table>
+    <tr>
+      <th>Função</th>
+      <th>Primária</th>
+      <th>Secundaria</th>
+      <th>Magia</th>
+      <th>Orientação</th>
+      <th>Orientação 2</th>
+      <th>Equipamento</th>
+      <th>Operação</th>
+    </tr>
+    <tr *ngFor="let produto of lista_personagens; let i = index">
+      <td>{{ produto.getFuncao() }}</td>
+      <td>{{ produto.getPrincipal() }}</td>
+      <td>{{ produto.getSecundario() }}</td>
+      <td>{{ produto.getMagia() }}</td>
+      <td>{{ produto.getOrientacao() }}</td>
+      <td>{{ produto.getOrientacao2() }}</td>
+      <td>{{ produto.getEquipamento() }}</td>
+      <td>
+        <button (click)="editar(i)" mat-fab color="accent">Editar</button>
+        <button (click)="excluir(i)" mat-fab color="warn">Excluir</button>
+      </td>
+    </tr>
+  </table>
+  <button (click)="irParaCriarPersonagem()" mat-fab color="accent">Criar</button>
+</body>

@@ -11,9 +11,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
+import { ListarComponent } from './components/listar/listar.component';
+import { CriarComponent } from './components/criar/criar.component';
+import { EditarComponent } from './components/editar/editar.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ListarComponent, CriarComponent, EditarComponent],
   imports: [
     MatTableModule,
     FormsModule,
