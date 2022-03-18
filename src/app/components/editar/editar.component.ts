@@ -132,7 +132,7 @@ export class EditarComponent implements OnInit {
     let personagem = new Personagem(
       this.formEditar.controls["funcao"].value,
       this.formEditar.controls["principal"].value,
-      this.formEditar.controls["secundario"].value,
+      this.formEditar.controls["secundaria"].value,
       this.formEditar.controls["magia"].value,
       this.formEditar.controls["orientacao"].value,
       this.formEditar.controls["orientacao2"].value,

@@ -116,7 +116,7 @@ export class CriarComponent implements OnInit {
         new Personagem(
           this.formCriar.controls["funcao"].value,
           this.formCriar.controls["principal"].value,
-          this.formCriar.controls["secundario"].value,
+          this.formCriar.controls["secundaria"].value,
           this.formCriar.controls["magia"].value,
           this.formCriar.controls["orientacao"].value,
           this.formCriar.controls["orientacao2"].value,
