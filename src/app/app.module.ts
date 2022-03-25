@@ -1,22 +1,32 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
-import { MatTableModule } from '@angular/material/table';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ListarComponent } from './components/listar/listar.component';
-import { CriarComponent } from './components/criar/criar.component';
-import { EditarComponent } from './components/editar/editar.component';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatSelectModule } from "@angular/material/select";
+import { MatTableModule } from "@angular/material/table";
+import { MatButtonModule } from "@angular/material/button";
+import { MatDividerModule } from "@angular/material/divider";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ListarComponent } from "./components/listar/listar.component";
+import { CriarComponent } from "./components/criar/criar.component";
+import { EditarComponent } from "./components/editar/editar.component";
+import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
+import { AngularFireStorageModule } from "@angular/fire/compat/storage";
+import { AngularFireAuthModule } from "@angular/fire/compat/auth";
+import { environment } from "src/environments/environment";
 
 @NgModule({
-  declarations: [AppComponent, ListarComponent, CriarComponent, EditarComponent],
+  declarations: [
+    AppComponent,
+    ListarComponent,
+    CriarComponent,
+    EditarComponent,
+  ],
   imports: [
     MatTableModule,
     FormsModule,
@@ -29,6 +39,10 @@ import { EditarComponent } from './components/editar/editar.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatDividerModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
