@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { Personagem } from "src/app/models/personagem.module";
-import { PersonagemService } from "src/app/services/personagem.service";
+import { PersonagemFirebaseService } from "src/app/services/personagem-firebase.service";
 
 interface Selecao {
   value: string;
@@ -17,7 +17,7 @@ interface Selecao {
 export class CriarComponent implements OnInit {
   constructor(
     private _router: Router,
-    private _personagensService: PersonagemService,
+    private _personagensService: PersonagemFirebaseService,
     private _formBuilder: FormBuilder
   ) {
     this.formCriar = this._formBuilder.group({
@@ -111,22 +111,14 @@ export class CriarComponent implements OnInit {
   }
 
   public salvar(): void {
-    if (
-      this._personagensService.inserirPersonagem(
-        new Personagem(
-          this.formCriar.controls["funcao"].value,
-          this.formCriar.controls["principal"].value,
-          this.formCriar.controls["secundaria"].value,
-          this.formCriar.controls["magia"].value,
-          this.formCriar.controls["orientacao"].value,
-          this.formCriar.controls["orientacao2"].value,
-          this.formCriar.controls["equipamento"].value
-        )
-      )
-    ) {
-      this._router.navigate(["/listaDePersonagens"]);
-    } else {
-      alert("deu ruim");
-    }
+    this._personagensService
+      .criarPersonagem(this.formCriar.value)
+      .then(() => {
+        this._router.navigate(["/listaDeProdutos"]);
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("deu ruim");
+      });
   }
 }

@@ -1,46 +1,46 @@
 export class Personagem {
   id?: string;
-  _funcao: string;
-  _principal: string;
-  _secundario: string;
-  _magia: string;
-  _orientacao: string;
-  _orientacao2: string;
-  _equipamento: string;
+  funcao?: string;
+  principal?: string;
+  secundaria?: string;
+  magia?: string;
+  orientacao?: string;
+  orientacao2?: string;
+  equipamento?: string;
 
   constructor(
     funcao: string,
     principal: string,
-    secundario: string,
+    secundaria: string,
     magia: string,
     orientacao: string,
     orientacao2: string,
     equipamento: string
   ) {
-    this._funcao = funcao;
-    this._principal = principal;
-    this._secundario = secundario;
-    this._magia = magia;
-    this._orientacao = orientacao;
-    this._orientacao2 = orientacao2;
-    this._equipamento = equipamento;
+    this.funcao = funcao;
+    this.principal = principal;
+    this.secundaria = secundaria;
+    this.magia = magia;
+    this.orientacao = orientacao;
+    this.orientacao2 = orientacao2;
+    this.equipamento = equipamento;
   }
 
   public conteudo(): string {
     return (
-      this._funcao +
+      this.funcao +
       " " +
-      this._principal +
+      this.principal +
       " " +
-      this._secundario +
+      this.secundaria +
       " " +
-      this._magia +
+      this.magia +
       " " +
-      this._orientacao +
+      this.orientacao +
       " " +
-      this._orientacao2 +
+      this.orientacao2 +
       " " +
-      this._equipamento
+      this.equipamento
     );
   }
 }

@@ -6,7 +6,7 @@ import { Personagem } from "../models/personagem.module";
   providedIn: "root",
 })
 export class PersonagemFirebaseService {
-  private _PATH: string = "personagems";
+  private _PATH: string = "Personagens";
   constructor(private angularFirestore: AngularFirestore) {}
 
   getPersonagem(id: string) {
@@ -28,6 +28,14 @@ export class PersonagemFirebaseService {
     return this.angularFirestore
       .collection(this._PATH)
       .doc(id)
-      .update({ funcao: personagem._funcao, principal: personagem._principal, secundario: personagem._secundario});
+      .update({
+        funcao: personagem.funcao,
+        principal: personagem.principal,
+        secundaria: personagem.secundaria,
+        magia: personagem.magia,
+        orientacao: personagem.orientacao,
+        orientacao2: personagem.orientacao2,
+        equipamento: personagem.equipamento,
+      });
   }
 }
