@@ -41,13 +41,13 @@ export class EditarComponent implements OnInit {
           .subscribe((res) => {
             let personagemRef: any = res;
             this.formEditar = this._formBuilder.group({
-              funcao: [personagemRef._funcao, [Validators.required]],
-              principal: [personagemRef._principal, [Validators.required]],
-              secundaria: [personagemRef._secundario, [Validators.required]],
-              magia: [personagemRef._magia, [Validators.required]],
-              orientacao: [personagemRef._orientacao, [Validators.required]],
-              orientacao2: [personagemRef._orientacao2, [Validators.required]],
-              equipamento: [personagemRef._equipamento, [Validators.required]],
+              funcao: [personagemRef.funcao, [Validators.required]],
+              principal: [personagemRef.principal, [Validators.required]],
+              secundaria: [personagemRef.secundaria, [Validators.required]],
+              magia: [personagemRef.magia, [Validators.required]],
+              orientacao: [personagemRef.orientacao, [Validators.required]],
+              orientacao2: [personagemRef.orientacao2, [Validators.required]],
+              equipamento: [personagemRef.equipamento, [Validators.required]],
             });
           });
       }
