@@ -14,17 +14,17 @@
       <th>Equipamento</th>
       <th>Operação</th>
     </tr>
-    <tr *ngFor="let produto of lista_personagens; let i = index">
-      <td>{{ produto.getFuncao() }}</td>
-      <td>{{ produto.getPrincipal() }}</td>
-      <td>{{ produto.getSecundario() }}</td>
-      <td>{{ produto.getMagia() }}</td>
-      <td>{{ produto.getOrientacao() }}</td>
-      <td>{{ produto.getOrientacao2() }}</td>
-      <td>{{ produto.getEquipamento() }}</td>
+    <tr *ngFor="let personagem of lista_personagens;">
+      <td>{{ personagem.funcao }}</td>
+      <td>{{ personagem.principal }}</td>
+      <td>{{ personagem.secundaria }}</td>
+      <td>{{ personagem.magia }}</td>
+      <td>{{ personagem.orientacao }}</td>
+      <td>{{ personagem.orientacao2 }}</td>
+      <td>{{ personagem.equipamento }}</td>
       <td>
-        <button (click)="editar(i)" mat-fab color="accent">Editar</button>
-        <button (click)="excluir(i)" mat-fab color="warn">Excluir</button>
+        <button (click)="editar(personagem)" mat-fab color="accent">Editar</button>
+        <button (click)="excluir(personagem)" mat-fab color="warn">Excluir</button>
       </td>
     </tr>
   </table>

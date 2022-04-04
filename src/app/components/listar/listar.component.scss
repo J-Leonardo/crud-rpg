@@ -6,17 +6,22 @@ table {
   font-size: large;
   width: 100%;
   background-color: rgb(59, 59, 59);
+  border-style:inset;
+  border-color: purple;
+  border-width: 10px;
 }
 
 td {
   color: greenyellow;
   text-align: center;
-  border: 1px solid #ffffff;
+  border: 10px solid #ffffff;
+  border-style: inset;
 }
 
 th {
   color: plum;
   font-family: "Lucida Sans";
   text-align: center;
-  border: 1px solid #ffffff;
+  border: 10px solid crimson;
+  border-style: inset;
 }

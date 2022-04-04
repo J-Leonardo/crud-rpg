@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Personagem } from "src/app/models/personagem.module";
-import { PersonagemService } from "src/app/services/personagem.service";
+import { PersonagemFirebaseService } from "src/app/services/personagem-firebase.service";
 
 interface Selecao {
   value: string;
@@ -18,7 +18,7 @@ export class EditarComponent implements OnInit {
   constructor(
     private _router: Router,
     private _actRoute: ActivatedRoute,
-    private _personagemService: PersonagemService,
+    private _personagemService: PersonagemFirebaseService,
     private _formBuilder: FormBuilder
   ) {
     this.formEditar = this._formBuilder.group({
@@ -35,23 +35,27 @@ export class EditarComponent implements OnInit {
   ngOnInit(): void {
     this._actRoute.params.subscribe((parametros) => {
       if (parametros["indice"]) {
-        this.index = parametros["indice"];
-        let personagem = this._personagemService.getPersonagem(this.index);
-        this.formEditar = this._formBuilder.group({
-          funcao: [personagem.getFuncao(), [Validators.required]],
-          principal: [personagem.getPrincipal(), [Validators.required]],
-          secundaria: [personagem.getSecundario(), [Validators.required]],
-          magia: [personagem.getMagia(), [Validators.required]],
-          orientacao: [personagem.getOrientacao(), [Validators.required]],
-          orientacao2: [personagem.getOrientacao2(), [Validators.required]],
-          equipamento: [personagem.getEquipamento(), [Validators.required]],
-        });
+        this.id = parametros["indice"];
+        this._personagemService
+          .getPersonagem(parametros["indice"])
+          .subscribe((res) => {
+            let personagemRef: any = res;
+            this.formEditar = this._formBuilder.group({
+              funcao: [personagemRef.funcao, [Validators.required]],
+              principal: [personagemRef.principal, [Validators.required]],
+              secundaria: [personagemRef.secundaria, [Validators.required]],
+              magia: [personagemRef.magia, [Validators.required]],
+              orientacao: [personagemRef.orientacao, [Validators.required]],
+              orientacao2: [personagemRef.orientacao2, [Validators.required]],
+              equipamento: [personagemRef.equipamento, [Validators.required]],
+            });
+          });
       }
     });
   }
 
   public formEditar: FormGroup;
-  public index: number = -1;
+  private id?: any;
 
   private validarFormulario() {
     for (let campos in this.formEditar.controls) {
@@ -129,19 +133,14 @@ export class EditarComponent implements OnInit {
   }
 
   public salvar(): void {
-    let personagem = new Personagem(
-      this.formEditar.controls["funcao"].value,
-      this.formEditar.controls["principal"].value,
-      this.formEditar.controls["secundaria"].value,
-      this.formEditar.controls["magia"].value,
-      this.formEditar.controls["orientacao"].value,
-      this.formEditar.controls["orientacao2"].value,
-      this.formEditar.controls["equipamento"].value
-    );
-    if (this._personagemService.editarPersonagem(this.index, personagem)) {
-      this._router.navigate(["/listaDePersonagens"]);
-    } else {
-      alert("deu ruim");
-    }
+    this._personagemService
+      .editarPersonagem(this.formEditar.value, this.id)
+      .then(() => {
+        this._router.navigate(['/listaDePersonagens']);
+      })
+      .catch((error) => {
+        console.log(error);
+        alert('deu ruim');
+      });
   }
 }
