@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
       )
       .then(() => {
         alert("Login efetuado com sucesso!");
-        this._router.navigate(["/listaDeProdutos"]);
+        this._router.navigate(["/listaDePersonagens"]);
       })
       .catch((error) => {
         alert("Deu ruim");
@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
       .loginComGoogleCount()
       .then(() => {
         alert("Login efetuado com sucesso!");
-        this._router.navigate(["/listaDeProdutos"]);
+        this._router.navigate(["/listaDePersonagens"]);
       })
       .catch((error) => {
         alert("Deu ruim");

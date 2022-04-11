@@ -52,7 +52,7 @@ export class CadastroComponent implements OnInit {
         )
         .then(() => {
           alert("Cadastro efetuado com sucesso!");
-          this._router.navigate(["/login"]);
+          this._router.navigate(["/listaDePersonagens"]);
         })
         .catch((error) => {
           alert("Deu ruim");

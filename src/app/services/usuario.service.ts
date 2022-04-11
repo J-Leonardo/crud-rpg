@@ -14,7 +14,11 @@ export class UsuarioService {
   }
 
   loginComEmailSenha(email: string, password: string) {
-    return this.authService.signInWithEmailAndPassword(email, password);
+    return this.authService
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        this.storage.setItem("condicao", "autenticado");
+      });
   }
 
   cadastrarComEmailSenha(email: string, password: string) {
@@ -22,7 +26,9 @@ export class UsuarioService {
   }
 
   loginComGoogleCount() {
-    return this.authLoginProvider(new GoogleAuthProvider());
+    return this.authLoginProvider(new GoogleAuthProvider()).then(() => {
+      this.storage.setItem("condicao", "autenticado");
+    });
   }
 
   authLoginProvider(provider: any) {
@@ -30,6 +36,7 @@ export class UsuarioService {
   }
 
   logout() {
+    this.storage.setItem("condicao", "deslogado");
     return this.authService.signOut();
   }
 }
