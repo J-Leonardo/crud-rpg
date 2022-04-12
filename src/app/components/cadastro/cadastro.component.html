@@ -1,0 +1,57 @@
+<body>
+    <mat-toolbar color="primary">Cadastrar</mat-toolbar>
+    <form [formGroup]="formCadastrar" (ngSubmit)="submitForm()">
+      <label>Email:</label>
+      <input text="text" formControlName="email" required /><br />
+      <div *ngIf="formCadastrar.controls['email'].touched">
+        <small
+          *ngIf="formCadastrar.controls['email'].hasError('required')"
+          style="color: pink"
+          >O email é obrigatório!
+        </small>
+        <small
+          *ngIf="formCadastrar.controls['email'].hasError('email')"
+          style="color: pink"
+          >Email inválido!</small
+        >
+      </div>
+      <label>Senha:</label>
+      <input type="password" formControlName="password" required /><br />
+      <div *ngIf="formCadastrar.controls['password'].touched">
+        <small
+          *ngIf="formCadastrar.controls['password'].hasError('required')"
+          style="color: pink"
+          >Confirme sua senha!</small
+        >
+        <small
+          *ngIf="formCadastrar.controls['password'].hasError('minLength')"
+          style="color: pink"
+          >Senha pequena demais!</small
+        >
+      </div>
+      <label>Senha:</label>
+      <input type="password" formControlName="confirmPassword" required /><br />
+      <div *ngIf="formCadastrar.controls['confirmPassword'].touched">
+        <small
+          *ngIf="formCadastrar.controls['confirmPassword'].hasError('required')"
+          style="color: pink"
+          >A senha é obirgatória!</small
+        >
+        <small
+          *ngIf="formCadastrar.controls['confirmPassword'].hasError('minLength')"
+          style="color: pink"
+          >Senha pequena demais!</small
+        >
+        <small
+          *ngIf="
+            formCadastrar.controls['confirmPassword'].value !=
+            formCadastrar.controls['password'].value
+          "
+          style="color: pink"
+          >Senhas não são iguais!</small
+        >
+      </div>
+      <button type="submit">Cadastrar</button>
+    </form>
+  </body>
+  
