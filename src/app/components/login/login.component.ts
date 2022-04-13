@@ -10,19 +10,25 @@ import { UsuarioService } from "src/app/services/usuario.service";
 })
 export class LoginComponent implements OnInit {
   public formLogin: FormGroup;
+  storage:Storage;
 
   constructor(
     private _router: Router,
     private _usuarioService: UsuarioService,
     private _formBuilder: FormBuilder
   ) {
+    this.storage=window.localStorage;
     this.formLogin = this._formBuilder.group({
       email: ["", [Validators.required, Validators.email]],
       password: ["", [Validators.required, Validators.minLength(6)]],
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this._usuarioService.storage.getItem("condicao") == "autenticado"){
+      this._router.navigate(["/listaDePersonagens"]);
+    }
+  }
 
   private validarFormulario() {
     for (let campos in this.formLogin.controls) {
