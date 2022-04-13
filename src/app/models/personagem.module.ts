@@ -1,5 +1,7 @@
 export class Personagem {
   id?: string;
+  nome?: string;
+  imagem?: string;
   funcao?: string;
   principal?: string;
   secundaria?: string;
@@ -9,6 +11,8 @@ export class Personagem {
   equipamento?: string;
 
   constructor(
+    imagem: string,
+    nome: string,
     funcao: string,
     principal: string,
     secundaria: string,
@@ -17,6 +21,8 @@ export class Personagem {
     orientacao2: string,
     equipamento: string
   ) {
+    this.imagem = imagem;
+    this.nome = nome;
     this.funcao = funcao;
     this.principal = principal;
     this.secundaria = secundaria;
@@ -24,23 +30,5 @@ export class Personagem {
     this.orientacao = orientacao;
     this.orientacao2 = orientacao2;
     this.equipamento = equipamento;
-  }
-
-  public conteudo(): string {
-    return (
-      this.funcao +
-      " " +
-      this.principal +
-      " " +
-      this.secundaria +
-      " " +
-      this.magia +
-      " " +
-      this.orientacao +
-      " " +
-      this.orientacao2 +
-      " " +
-      this.equipamento
-    );
   }
 }

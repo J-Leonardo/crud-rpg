@@ -19,7 +19,6 @@ import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
 import { AngularFireStorageModule } from "@angular/fire/compat/storage";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { environment } from "src/environments/environment";
-import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { LoginComponent } from './components/login/login.component';
 import { CadastroComponent } from './components/cadastro/cadastro.component';
 
@@ -49,7 +48,6 @@ import { CadastroComponent } from './components/cadastro/cadastro.component';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
-    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent],

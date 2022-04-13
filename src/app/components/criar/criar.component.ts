@@ -114,7 +114,7 @@ export class CriarComponent implements OnInit {
     this._personagensService
       .criarPersonagem(this.formCriar.value)
       .then(() => {
-        this._router.navigate(["/listaDeProdutos"]);
+        this._router.navigate(["/listaDePersonagens"]);
       })
       .catch((error) => {
         console.log(error);
