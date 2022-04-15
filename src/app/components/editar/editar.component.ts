@@ -41,6 +41,7 @@ export class EditarComponent implements OnInit {
           .subscribe((res) => {
             let personagemRef: any = res;
             this.formEditar = this._formBuilder.group({
+              nome: [personagemRef.nome, [Validators.required]],
               funcao: [personagemRef.funcao, [Validators.required]],
               principal: [personagemRef.principal, [Validators.required]],
               secundaria: [personagemRef.secundaria, [Validators.required]],

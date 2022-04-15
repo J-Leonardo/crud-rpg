@@ -5,8 +5,25 @@
 
   <form [formGroup]="formCriar" (ngSubmit)="submitForm()">
     <mat-form-field
+      style="background-color: rgb(8, 8, 61) !important; color: white"
+      appearance="outline"
+    >
+      <mat-label>nome</mat-label>
+      <input matInput formControlName="nome" type="text" required />
+      <div *ngIf="formCriar.controls['nome'].touched">
+        <small
+          *ngIf="formCriar.controls['nome'].hasError('required')"
+          style="color: pink"
+        >
+          O Nome é obrigatório!</small
+        >
+      </div>
+    </mat-form-field>
+    <br />
+
+    <mat-form-field
       style="background-color: rgb(8, 8, 61) !important"
-      appearance="fill"
+      appearance="outline"
     >
       <mat-label>Ideia principal</mat-label>
       <mat-select formControlName="principal" required>
@@ -15,11 +32,10 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <br />
 
     <mat-form-field
       style="background-color: rgb(8, 8, 61) !important"
-      appearance="fill"
+      appearance="outline"
     >
       <mat-label>Ideia secundaria</mat-label>
       <mat-select formControlName="secundaria" required>
@@ -32,7 +48,7 @@
 
     <mat-form-field
       style="background-color: rgb(8, 8, 61) !important"
-      appearance="fill"
+      appearance="outline"
     >
       <mat-label>Magia</mat-label>
       <mat-select formControlName="magia" required>
@@ -41,37 +57,10 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <br />
 
     <mat-form-field
       style="background-color: rgb(8, 8, 61) !important"
-      appearance="fill"
-    >
-      <mat-label>Orientacao</mat-label>
-      <mat-select formControlName="orientacao" required>
-        <mat-option *ngFor="let first of orientacaos" [value]="first.value">
-          {{ first.viewValue }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <br />
-
-    <mat-form-field
-      style="background-color: rgb(8, 8, 61) !important"
-      appearance="fill"
-    >
-      <mat-label>Orientacao 2</mat-label>
-      <mat-select formControlName="orientacao2" required>
-        <mat-option *ngFor="let first of orientacaos2" [value]="first.value">
-          {{ first.viewValue }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <br />
-
-    <mat-form-field
-      style="background-color: rgb(8, 8, 61) !important"
-      appearance="fill"
+      appearance="outline"
     >
       <mat-label>Funcao</mat-label>
       <mat-select formControlName="funcao" required>
@@ -84,7 +73,32 @@
 
     <mat-form-field
       style="background-color: rgb(8, 8, 61) !important"
-      appearance="fill"
+      appearance="outline"
+    >
+      <mat-label>Orientacao</mat-label>
+      <mat-select formControlName="orientacao" required>
+        <mat-option *ngFor="let first of orientacaos" [value]="first.value">
+          {{ first.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field
+      style="background-color: rgb(8, 8, 61) !important"
+      appearance="outline"
+    >
+      <mat-label>Orientacao 2</mat-label>
+      <mat-select formControlName="orientacao2" required>
+        <mat-option *ngFor="let first of orientacaos2" [value]="first.value">
+          {{ first.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+
+    <mat-form-field
+      style="background-color: rgb(8, 8, 61) !important"
+      appearance="outline"
     >
       <mat-label>Equipamento</mat-label>
       <mat-select formControlName="equipamento" required>
@@ -94,6 +108,13 @@
       </mat-select>
     </mat-form-field>
     <br />
+
+    <div class="file-input">
+      <label for="imagem">Adicione uma imagem</label>
+      <input id="imagem" class="file" type="file" required/>
+    </div>
+    <br />
+
     <button mat-raised-button type="submit">Criar</button>
   </form>
 </body>
