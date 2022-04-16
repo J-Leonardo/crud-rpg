@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
-import { GoogleAuthProvider } from "firebase/auth";
+import { FacebookAuthProvider, GoogleAuthProvider, TwitterAuthProvider } from "firebase/auth";
 
 @Injectable({
   providedIn: "root",
@@ -23,6 +23,18 @@ export class UsuarioService {
 
   cadastrarComEmailSenha(email: string, password: string) {
     return this.authService.createUserWithEmailAndPassword(email, password);
+  }
+
+  loginComFacebook() {
+    return this.authLoginProvider(new FacebookAuthProvider()).then(() => {
+      this.storage.setItem("condicao", "autenticado");
+    });
+  }
+
+  loginComTwitter() {
+    return this.authLoginProvider(new TwitterAuthProvider()).then(() => {
+      this.storage.setItem("condicao", "autenticado");
+    });
   }
 
   loginComGoogleCount() {
