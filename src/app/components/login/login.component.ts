@@ -73,4 +73,30 @@ export class LoginComponent implements OnInit {
         console.log(error);
       });
   }
+
+  logarComTwitter() {
+    this._usuarioService
+      .loginComTwitter()
+      .then(() => {
+        alert("Login efetuado com sucesso!");
+        this._router.navigate(["/listaDePersonagens"]);
+      })
+      .catch((error) => {
+        alert("Deu ruim");
+        console.log(error);
+      });
+  }
+
+  logarComFacebook() {
+    this._usuarioService
+      .loginComFacebook()
+      .then(() => {
+        alert("Login efetuado com sucesso!");
+        this._router.navigate(["/listaDePersonagens"]);
+      })
+      .catch((error) => {
+        alert("Deu ruim");
+        console.log(error);
+      });
+  }
 }
