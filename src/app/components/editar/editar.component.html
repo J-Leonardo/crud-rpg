@@ -6,6 +6,15 @@
   <form [formGroup]="formEditar" (ngSubmit)="submitForm()">
     <mat-form-field
       style="background-color: rgb(8, 8, 61) !important"
+      appearance="outline"
+    >
+      <mat-label>nome</mat-label>
+      <input matInput formControlName="nome" required />
+    </mat-form-field>
+    <br />
+    
+    <mat-form-field
+      style="background-color: rgb(8, 8, 61) !important"
       appearance="fill"
     >
       <mat-label>Ideia principal</mat-label>
@@ -94,6 +103,12 @@
       </mat-select>
     </mat-form-field>
     <br />
+
+    <div>
+      <label id="labelFile" for="file">Adicione uma imagem</label>
+      <input class="file" type="file" id="file" />
+    </div>
+
     <button mat-raised-button type="submit">Salvar</button>
   </form>
 </body>

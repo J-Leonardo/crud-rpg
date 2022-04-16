@@ -6,6 +6,7 @@ import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSelectModule } from "@angular/material/select";
+import { MatInputModule } from "@angular/material/input";
 import { MatTableModule } from "@angular/material/table";
 import { MatButtonModule } from "@angular/material/button";
 import { MatDividerModule } from "@angular/material/divider";
@@ -19,9 +20,8 @@ import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
 import { AngularFireStorageModule } from "@angular/fire/compat/storage";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { environment } from "src/environments/environment";
-import { LoginComponent } from './components/login/login.component';
-import { CadastroComponent } from './components/cadastro/cadastro.component';
-
+import { LoginComponent } from "./components/login/login.component";
+import { CadastroComponent } from "./components/cadastro/cadastro.component";
 
 @NgModule({
   declarations: [
@@ -39,6 +39,7 @@ import { CadastroComponent } from './components/cadastro/cadastro.component';
     MatToolbarModule,
     MatSelectModule,
     MatFormFieldModule,
+    MatInputModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

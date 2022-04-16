@@ -5,6 +5,8 @@
 
   <table>
     <tr>
+      <th>Imagem</th>
+      <th>Nome</th>
       <th>Função</th>
       <th>Primária</th>
       <th>Secundaria</th>
@@ -15,6 +17,8 @@
       <th>Operação</th>
     </tr>
     <tr *ngFor="let personagem of lista_personagens;">
+      <td><img src="{{ personagem.downloadURL }}" /></td>
+      <td>{{ personagem.nome }}</td>
       <td>{{ personagem.funcao }}</td>
       <td>{{ personagem.principal }}</td>
       <td>{{ personagem.secundaria }}</td>

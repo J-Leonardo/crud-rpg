@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+import { MatInputModule } from "@angular/material/input";
 import { Personagem } from "src/app/models/personagem.module";
 import { PersonagemFirebaseService } from "src/app/services/personagem-firebase.service";
 
@@ -21,6 +22,7 @@ export class CriarComponent implements OnInit {
     private _formBuilder: FormBuilder
   ) {
     this.formCriar = this._formBuilder.group({
+      nome: ["", [Validators.required]],
       funcao: ["", [Validators.required]],
       principal: ["", [Validators.required]],
       secundaria: ["", [Validators.required]],
@@ -111,14 +113,21 @@ export class CriarComponent implements OnInit {
   }
 
   public salvar(): void {
-    this._personagensService
-      .criarPersonagem(this.formCriar.value)
-      .then(() => {
-        this._router.navigate(["/listaDePersonagens"]);
-      })
-      .catch((error) => {
-        console.log(error);
-        alert("deu ruim");
-      });
+    const target = document.getElementById("imagem") as HTMLInputElement;
+    const file: File = (target.files as FileList)[0];
+    if (file.type.split("/")[0] != "image") {
+      alert("Tipo de arquivo não suportado");
+      return;
+    } else {
+      this._personagensService
+        .uploadStorage(file, this.formCriar.value)
+        .then(() => {
+          this._router.navigate(["/listaDePersonagens"]);
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("deu ruim");
+        });
+    }
   }
 }

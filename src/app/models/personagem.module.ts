@@ -1,7 +1,8 @@
 export class Personagem {
   id?: string;
   nome?: string;
-  imagem?: string;
+  nomeimagem?: string;
+  downloadURL?: string;
   funcao?: string;
   principal?: string;
   secundaria?: string;
@@ -11,7 +12,6 @@ export class Personagem {
   equipamento?: string;
 
   constructor(
-    imagem: string,
     nome: string,
     funcao: string,
     principal: string,
@@ -21,7 +21,6 @@ export class Personagem {
     orientacao2: string,
     equipamento: string
   ) {
-    this.imagem = imagem;
     this.nome = nome;
     this.funcao = funcao;
     this.principal = principal;

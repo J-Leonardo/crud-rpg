@@ -1,3 +1,40 @@
 body {
   background-color: rgb(8, 8, 61) !important;
 }
+form {
+  text-align: center;
+}
+button{
+  margin-right: 2%;
+}
+mat-form-field {
+  //margin: 0.2%;
+  margin-right: 2%;
+}
+.file-input label {
+  margin-right: 2%;
+  display: block;
+  position: relative;
+  left: 39%;
+  width: 20%;
+  height: 37px;
+  border-radius: 5px;
+  background: rgb(254, 1, 119);
+  box-shadow: 0 2px 3px rgba(37, 34, 34, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease-out;
+}
+.file {
+  opacity: 0;
+  width: 0.1px;
+  height: 0.1px;
+  position: absolute;
+}
+.file-input:hover label {
+  background-color: rgb(253, 63, 196);
+}
