@@ -22,6 +22,9 @@ import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { environment } from "src/environments/environment";
 import { LoginComponent } from "./components/login/login.component";
 import { CadastroComponent } from "./components/cadastro/cadastro.component";
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogoComponent } from './components/listar/dialogo/dialogo.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,7 @@ import { CadastroComponent } from "./components/cadastro/cadastro.component";
     EditarComponent,
     LoginComponent,
     CadastroComponent,
+    DialogoComponent,
   ],
   imports: [
     MatTableModule,
@@ -48,7 +52,9 @@ import { CadastroComponent } from "./components/cadastro/cadastro.component";
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireAuthModule,
+    AngularFireAuthModule,    
+    MatSnackBarModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
