@@ -32,6 +32,7 @@ export class UsuarioService {
   }
 
   loginComTwitter() {
+    //desisti pq nao sei fazer termos de uso e privacidade
     return this.authLoginProvider(new TwitterAuthProvider()).then(() => {
       this.storage.setItem("condicao", "autenticado");
     });

@@ -25,6 +25,7 @@ import { CadastroComponent } from "./components/cadastro/cadastro.component";
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogoComponent } from './components/listar/dialogo/dialogo.component';
+import { UsuarioService } from "./services/usuario.service";
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import { DialogoComponent } from './components/listar/dialogo/dialogo.component'
     MatSnackBarModule,
     MatDialogModule,
   ],
-  providers: [],
+  providers: [UsuarioService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
