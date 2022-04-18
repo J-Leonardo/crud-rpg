@@ -74,9 +74,9 @@ export class LoginComponent implements OnInit {
       });
   }
 
-  logarComTwitter() {
+  logarComFacebook() {
     this._usuarioService
-      .loginComTwitter()
+      .loginComFacebook()
       .then(() => {
         alert("Login efetuado com sucesso!");
         this._router.navigate(["/listaDePersonagens"]);
@@ -86,10 +86,10 @@ export class LoginComponent implements OnInit {
         console.log(error);
       });
   }
-
-  logarComFacebook() {
+  
+  logarComGithub() {
     this._usuarioService
-      .loginComFacebook()
+      .loginComGithub()
       .then(() => {
         alert("Login efetuado com sucesso!");
         this._router.navigate(["/listaDePersonagens"]);

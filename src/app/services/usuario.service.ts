@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
-import { FacebookAuthProvider, GoogleAuthProvider, TwitterAuthProvider } from "firebase/auth";
+import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, TwitterAuthProvider } from "firebase/auth";
 
 @Injectable({
   providedIn: "root",
@@ -44,6 +44,12 @@ export class UsuarioService {
     });
   }
 
+  loginComGithub() {
+    return this.authLoginProvider(new GithubAuthProvider()).then(() => {
+      this.storage.setItem("condicao", "autenticado");
+    });
+  }
+  
   authLoginProvider(provider: any) {
     return this.authService.signInWithPopup(provider);
   }
