@@ -22,6 +22,7 @@ export class EditarComponent implements OnInit {
     private _formBuilder: FormBuilder
   ) {
     this.formEditar = this._formBuilder.group({
+      nome: ["", [Validators.required]],
       funcao: ["", [Validators.required]],
       principal: ["", [Validators.required]],
       secundaria: ["", [Validators.required]],
@@ -134,14 +135,21 @@ export class EditarComponent implements OnInit {
   }
 
   public salvar(): void {
-    this._personagemService
-      .editarPersonagem(this.formEditar.value, this.id)
-      .then(() => {
-        this._router.navigate(['/listaDePersonagens']);
-      })
-      .catch((error) => {
-        console.log(error);
-        alert('deu ruim');
-      });
+    const target = document.getElementById("imagem") as HTMLInputElement;
+    const file: File = (target.files as FileList)[0];
+    if (file.type.split("/")[0] != "image") {
+      alert("Tipo de arquivo não suportado");
+      return;
+    } else {
+      this._personagemService
+        .updateStorage(file, this.formEditar.value, this.id)
+        .then(() => {
+          this._router.navigate(["/listaDePersonagens"]);
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("deu ruim");
+        });
+    }
   }
 }
