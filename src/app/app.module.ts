@@ -22,6 +22,9 @@ import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { environment } from "src/environments/environment";
 import { LoginComponent } from "./components/login/login.component";
 import { CadastroComponent } from "./components/cadastro/cadastro.component";
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogoComponent } from './components/listar/dialogo/dialogo.component';
 import { UsuarioService } from "./services/usuario.service";
 
 @NgModule({
@@ -32,6 +35,7 @@ import { UsuarioService } from "./services/usuario.service";
     EditarComponent,
     LoginComponent,
     CadastroComponent,
+    DialogoComponent,
   ],
   imports: [
     MatTableModule,
@@ -49,7 +53,9 @@ import { UsuarioService } from "./services/usuario.service";
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireAuthModule,
+    AngularFireAuthModule,    
+    MatSnackBarModule,
+    MatDialogModule,
   ],
   providers: [UsuarioService],
   bootstrap: [AppComponent],
