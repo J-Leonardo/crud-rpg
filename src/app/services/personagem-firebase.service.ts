@@ -45,6 +45,29 @@ export class PersonagemFirebaseService {
       )
       .subscribe();
   }
+  async updateStorage(file: File, personagem: Personagem, id:string) {
+    if (file.type.split("/")[0] != "image") {
+      console.log("Tipo Não Suportado!");
+      return;
+    }
+    this.fileName = file.name;
+    const path = `imagens/${new Date().getTime()}_${file.name}`;
+    const fileRef = this.storage.ref(path);
+    this.task = this.storage.upload(path, file);
+    return this.task
+      .snapshotChanges()
+      .pipe(
+        finalize(() => {
+          this.uploadedFileUrl = fileRef.getDownloadURL();
+          this.uploadedFileUrl.subscribe((resp) => {
+            personagem.nomeimagem = file.name;
+            personagem.downloadURL = resp;
+            this.editarPersonagem(personagem, id);
+          });
+        })
+      )
+      .subscribe();
+  }
   getPersonagem(id: string) {
     return this.angularFirestore.collection(this._PATH).doc(id).valueChanges();
   }
@@ -62,6 +85,8 @@ export class PersonagemFirebaseService {
   }
   editarPersonagem(personagem: Personagem, id: string) {
     return this.angularFirestore.collection(this._PATH).doc(id).update({
+      nome: personagem.nome,
+      downloadURL: personagem.downloadURL,
       funcao: personagem.funcao,
       principal: personagem.principal,
       secundaria: personagem.secundaria,
