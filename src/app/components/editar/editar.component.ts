@@ -157,4 +157,8 @@ export class EditarComponent implements OnInit {
         });
     }
   }
+
+  public listar() {
+    this._router.navigate(["/listaDePersonagens"]);
+  }
 }

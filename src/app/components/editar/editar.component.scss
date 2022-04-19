@@ -4,7 +4,7 @@ body {
 form {
   text-align: center;
 }
-button{
+button {
   margin-right: 2%;
 }
 mat-form-field {
@@ -38,6 +38,10 @@ mat-form-field {
 .file-input:hover label {
   background-color: rgb(253, 63, 196);
 }
-input{
+input {
   color: white;
+}
+span {
+  font-size: xx-large;
+  padding-left: 35%;
 }

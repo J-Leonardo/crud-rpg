@@ -27,6 +27,7 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { DialogoComponent } from "./components/listar/dialogo/dialogo.component";
 import { LogoutComponent } from "./components/listar/logout/logout.component";
 import { MatCardModule } from "@angular/material/card";
+import { MatIconModule } from "@angular/material/icon";
 import { UsuarioService } from "./services/usuario.service";
 
 @NgModule({
@@ -60,6 +61,7 @@ import { UsuarioService } from "./services/usuario.service";
     MatSnackBarModule,
     MatDialogModule,
     MatCardModule,
+    MatIconModule,
   ],
   providers: [UsuarioService],
   bootstrap: [AppComponent],
