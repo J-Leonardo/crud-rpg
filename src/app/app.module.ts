@@ -27,6 +27,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DialogoComponent } from './components/listar/dialogo/dialogo.component';
 import { LogoutComponent } from './components/listar/logout/logout.component';
 import {MatCardModule} from '@angular/material/card';
+import { UsuarioService } from "./services/usuario.service";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +61,7 @@ import {MatCardModule} from '@angular/material/card';
     MatDialogModule,
     MatCardModule,
   ],
-  providers: [],
+  providers: [UsuarioService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
