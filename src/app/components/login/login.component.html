@@ -1,7 +1,9 @@
 <body>
     <mat-toolbar color="primary">Login</mat-toolbar>
     <form [formGroup]="formLogin" (ngSubmit)="submitForm()">
-      <label>Email:</label>
+      <mat-card-header>
+        <mat-card-title>Email</mat-card-title>
+      </mat-card-header>
       <input text="text" formControlName="email" required /><br />
       <div *ngIf="formLogin.controls['email'].touched">
         <small
@@ -15,7 +17,9 @@
           >Email inválido!</small
         >
       </div>
-      <label>Senha:</label>
+      <mat-card-header>
+        <mat-card-title>Senha</mat-card-title>
+      </mat-card-header>
       <input type="password" formControlName="password" required /><br />
       <div *ngIf="formLogin.controls['password'].touched">
         <small

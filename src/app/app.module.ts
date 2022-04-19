@@ -25,6 +25,8 @@ import { CadastroComponent } from "./components/cadastro/cadastro.component";
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogoComponent } from './components/listar/dialogo/dialogo.component';
+import { LogoutComponent } from './components/listar/logout/logout.component';
+import {MatCardModule} from '@angular/material/card';
 import { UsuarioService } from "./services/usuario.service";
 
 @NgModule({
@@ -36,6 +38,7 @@ import { UsuarioService } from "./services/usuario.service";
     LoginComponent,
     CadastroComponent,
     DialogoComponent,
+    LogoutComponent,
   ],
   imports: [
     MatTableModule,
@@ -56,6 +59,7 @@ import { UsuarioService } from "./services/usuario.service";
     AngularFireAuthModule,    
     MatSnackBarModule,
     MatDialogModule,
+    MatCardModule,
   ],
   providers: [UsuarioService],
   bootstrap: [AppComponent],
