@@ -1,12 +1,7 @@
 <body>
   <mat-toolbar color="primary">
     <a
-      ><button
-        (click)="listar()"
-        mat-mini-fab
-        color="accent"
-        id="criar"
-      >
+      ><button (click)="listar()" mat-mini-fab color="accent" id="criar">
         <mat-icon>arrow_back</mat-icon>
       </button></a
     >
@@ -19,7 +14,13 @@
       appearance="outline"
     >
       <mat-label>nome</mat-label>
-      <input matInput formControlName="nome" type="text" required />
+      <input
+        matInput
+        formControlName="nome"
+        type="text"
+        maxlength="100"
+        required
+      />
       <div *ngIf="formCriar.controls['nome'].touched">
         <small
           *ngIf="formCriar.controls['nome'].hasError('required')"
@@ -121,7 +122,7 @@
 
     <div class="file-input">
       <label for="imagem">Adicione uma imagem</label>
-      <input id="imagem" class="file" type="file" required/>
+      <input id="imagem" class="file" type="file" required />
     </div>
     <br />
 
