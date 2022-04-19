@@ -33,6 +33,8 @@ export class EditarComponent implements OnInit {
     });
   }
 
+  downloadURL?: string;
+
   ngOnInit(): void {
     this._actRoute.params.subscribe((parametros) => {
       if (parametros["indice"]) {
@@ -41,6 +43,7 @@ export class EditarComponent implements OnInit {
           .getPersonagem(parametros["indice"])
           .subscribe((res) => {
             let personagemRef: any = res;
+            this.downloadURL = personagemRef.downloadURL;
             this.formEditar = this._formBuilder.group({
               nome: [personagemRef.nome, [Validators.required]],
               funcao: [personagemRef.funcao, [Validators.required]],
@@ -137,9 +140,11 @@ export class EditarComponent implements OnInit {
   public salvar(): void {
     const target = document.getElementById("imagem") as HTMLInputElement;
     const file: File = (target.files as FileList)[0];
-    if (file.type.split("/")[0] != "image") {
-      alert("Tipo de arquivo não suportado");
-      return;
+    if (file == null || file.type.split("/")[0] != "image") {
+      let personagem = this.formEditar.value;
+      personagem.downloadURL = this.downloadURL;
+      this._personagemService.editarPersonagem(this.formEditar.value, this.id);
+      this._router.navigate(["/listaDePersonagens"]);
     } else {
       this._personagemService
         .updateStorage(file, this.formEditar.value, this.id)

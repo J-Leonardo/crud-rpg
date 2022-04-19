@@ -1,22 +1,22 @@
 body {
-  background-image: url('https://www.htmlcsscolor.com/preview/gallery/01015F.png');
+  background-image: url("https://www.htmlcsscolor.com/preview/gallery/01015F.png");
   background-repeat: repeat;
 }
 table {
   font-size: large;
   width: 100%;
   background-color: rgb(59, 59, 59);
-  border-style:inset;
+  border-style: inset;
   border-color: purple;
   border-width: 10px;
 }
 
-img{
+img {
   width: 50%;
 }
 
-.imagem{
-  width: 5%;
+#imagem {
+  width: 20%;
 }
 
 td {
@@ -34,6 +34,15 @@ th {
   border-style: inset;
 }
 
-a{
-  margin: 960px;
+#criar {
+  margin-left: 120px;
 }
+
+#logout{
+  margin-left: 1000px;
+}
+
+/* a {
+  margin: 100px;
+}
+ */
