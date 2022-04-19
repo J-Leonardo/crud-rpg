@@ -4,5 +4,14 @@
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button mat-dialog-close class="dialogo">Cancelar</button>
-  <a><button mat-button [mat-dialog-close]="true" class="dialogo">Excluir</button></a>
+  <a
+    ><button
+      mat-raised-button
+      [mat-dialog-close]="true"
+      class="dialogo"
+      color="warn"
+    >
+      Excluir
+    </button></a
+  >
 </mat-dialog-actions>

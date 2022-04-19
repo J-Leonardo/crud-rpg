@@ -1,19 +1,19 @@
 <body>
   <mat-toolbar color="primary">
-    <span>Ideias de Personagens</span>
     <a
       ><button (click)="logout()" mat-raised-button color="accent" id="logout">
-        logout
+        <mat-icon>logout</mat-icon>
       </button></a
     >
+    <span id="nome">Ideias de Personagens</span>
     <a
       ><button
         (click)="irParaCriarPersonagem()"
-        mat-fab
+        mat-mini-fab
         color="accent"
         id="criar"
       >
-        Criar
+        <mat-icon>add</mat-icon>
       </button></a
     >
   </mat-toolbar>
@@ -42,11 +42,11 @@
       <td>{{ personagem.orientacao2 }}</td>
       <td>{{ personagem.equipamento }}</td>
       <td>
-        <button (click)="editar(personagem)" mat-fab color="accent">
-          Editar
+        <button (click)="editar(personagem)" mat-mini-fab color="accent">
+          <mat-icon>edit</mat-icon>
         </button>
-        <button (click)="excluir(personagem)" mat-fab color="warn">
-          Excluir
+        <button (click)="excluir(personagem)" mat-mini-fab color="warn">
+          <mat-icon>delete</mat-icon>
         </button>
       </td>
     </tr>

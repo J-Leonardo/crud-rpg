@@ -1,5 +1,10 @@
 <body>
   <mat-toolbar color="primary">
+    <a
+      ><button (click)="listar()" mat-mini-fab color="accent" id="criar">
+        <mat-icon>arrow_back</mat-icon>
+      </button></a
+    >
     <span>Editar Ideia</span>
   </mat-toolbar>
 
@@ -15,7 +20,7 @@
 
     <mat-form-field
       style="background-color: rgb(8, 8, 61) !important"
-      appearance="fill"
+      appearance="outline"
     >
       <mat-label>Ideia principal</mat-label>
       <mat-select formControlName="principal" required>
@@ -27,7 +32,7 @@
 
     <mat-form-field
       style="background-color: rgb(8, 8, 61) !important"
-      appearance="fill"
+      appearance="outline"
     >
       <mat-label>Ideia secundaria</mat-label>
       <mat-select formControlName="secundaria" required>
@@ -40,7 +45,7 @@
 
     <mat-form-field
       style="background-color: rgb(8, 8, 61) !important"
-      appearance="fill"
+      appearance="outline"
     >
       <mat-label>Magia</mat-label>
       <mat-select formControlName="magia" required>
@@ -49,11 +54,23 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
+
+    <mat-form-field
+      style="background-color: rgb(8, 8, 61) !important"
+      appearance="outline"
+    >
+      <mat-label>Funcao</mat-label>
+      <mat-select formControlName="funcao" required>
+        <mat-option *ngFor="let first of funcaos" [value]="first.value">
+          {{ first.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
     <br />
 
     <mat-form-field
       style="background-color: rgb(8, 8, 61) !important"
-      appearance="fill"
+      appearance="outline"
     >
       <mat-label>Orientacao</mat-label>
       <mat-select formControlName="orientacao" required>
@@ -65,7 +82,7 @@
 
     <mat-form-field
       style="background-color: rgb(8, 8, 61) !important"
-      appearance="fill"
+      appearance="outline"
     >
       <mat-label>Orientacao 2</mat-label>
       <mat-select formControlName="orientacao2" required>
@@ -78,19 +95,7 @@
 
     <mat-form-field
       style="background-color: rgb(8, 8, 61) !important"
-      appearance="fill"
-    >
-      <mat-label>Funcao</mat-label>
-      <mat-select formControlName="funcao" required>
-        <mat-option *ngFor="let first of funcaos" [value]="first.value">
-          {{ first.viewValue }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field
-      style="background-color: rgb(8, 8, 61) !important"
-      appearance="fill"
+      appearance="outline"
     >
       <mat-label>Equipamento</mat-label>
       <mat-select formControlName="equipamento" required>

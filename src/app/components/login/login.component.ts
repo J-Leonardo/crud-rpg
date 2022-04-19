@@ -10,25 +10,21 @@ import { UsuarioService } from "src/app/services/usuario.service";
 })
 export class LoginComponent implements OnInit {
   public formLogin: FormGroup;
-  storage:Storage;
+  storage: Storage;
 
   constructor(
     private _router: Router,
     private _usuarioService: UsuarioService,
     private _formBuilder: FormBuilder
   ) {
-    this.storage=window.localStorage;
+    this.storage = window.localStorage;
     this.formLogin = this._formBuilder.group({
       email: ["", [Validators.required, Validators.email]],
       password: ["", [Validators.required, Validators.minLength(6)]],
     });
   }
 
-  ngOnInit(): void {
-    if (this._usuarioService.storage.getItem("condicao") == "autenticado"){
-      this._router.navigate(["/listaDePersonagens"]);
-    }
-  }
+  ngOnInit(): void {}
 
   private validarFormulario() {
     for (let campos in this.formLogin.controls) {
@@ -86,7 +82,7 @@ export class LoginComponent implements OnInit {
         console.log(error);
       });
   }
-  
+
   logarComGithub() {
     this._usuarioService
       .loginComGithub()

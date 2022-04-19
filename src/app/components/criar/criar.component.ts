@@ -130,4 +130,8 @@ export class CriarComponent implements OnInit {
         });
     }
   }
+
+  public listar(){
+    this._router.navigate(["/listaDePersonagens"])
+  }
 }
