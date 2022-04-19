@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Personagem } from 'src/app/models/personagem.module';
 import { PersonagemFirebaseService } from 'src/app/services/personagem-firebase.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogoComponent } from './dialogo/dialogo.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @Component({
   selector: 'app-listar',
@@ -17,6 +19,7 @@ export class ListarComponent implements OnInit {
     private _personagemService: PersonagemFirebaseService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar,
+    private userService: UsuarioService,
   ) {}
 
   public lista_personagens: Personagem[] = [];
@@ -63,4 +66,21 @@ export class ListarComponent implements OnInit {
   public irParaCriarPersonagem(): void {
     this._router.navigate(['/criarPersonagem']);
   }
+
+  public logout() {
+    let resultado = this.dialog.open(LogoutComponent, { width: '250px' })
+
+    resultado.afterClosed().subscribe(result => {
+      if (result) {
+        this.userService.logout()
+          .then(() => {
+            this._router.navigate(['/login'])
+          })
+          .catch(() => {
+            alert("Deu errado")
+          })
+      }
+    })
+  }
+
 }

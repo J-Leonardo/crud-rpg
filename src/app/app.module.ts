@@ -25,7 +25,8 @@ import { CadastroComponent } from "./components/cadastro/cadastro.component";
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogoComponent } from './components/listar/dialogo/dialogo.component';
-
+import { LogoutComponent } from './components/listar/logout/logout.component';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import { DialogoComponent } from './components/listar/dialogo/dialogo.component'
     LoginComponent,
     CadastroComponent,
     DialogoComponent,
+    LogoutComponent,
   ],
   imports: [
     MatTableModule,
@@ -55,6 +57,7 @@ import { DialogoComponent } from './components/listar/dialogo/dialogo.component'
     AngularFireAuthModule,    
     MatSnackBarModule,
     MatDialogModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
