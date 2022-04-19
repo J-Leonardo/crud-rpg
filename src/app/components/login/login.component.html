@@ -3,68 +3,77 @@
     <mat-toolbar color="primary">Login</mat-toolbar>
   </div>
   <div class="aux">
-  <mat-card-header>
-    <mat-card-title>Email</mat-card-title>
-  </mat-card-header>
-  <mat-form-field
-    appearance="fill"
-    [formGroup]="formLogin"
-    (ngSubmit)="submitForm()"
-    style="text-align: center; color: black"
-    
-  >
-    <input
-      matInput
-      formControlName="email"
-      class="form-control"
-      placeholder="Insira seu email"
-      required
-    /><br />
-    <div *ngIf="formLogin.controls['email'].touched">
-      <small
-        *ngIf="formLogin.controls['email'].hasError('required')"
-        style="color: pink"
-        >O email é obrigatório!
-      </small>
-      <small
-        *ngIf="formLogin.controls['email'].hasError('email')"
-        style="color: pink"
-        >Email inválido!</small
+    <form [formGroup]="formLogin" (ngSubmit)="submitForm()">
+      <mat-card-header>
+        <mat-card-title>Email</mat-card-title>
+      </mat-card-header>
+      <mat-form-field
+        appearance="fill"
+        style="text-align: center; color: black"
       >
-    </div>
-  </mat-form-field>
-</div>
-<div class="aux">
-  <mat-card-header>
-    <mat-card-title>Senha</mat-card-title>
-  </mat-card-header>
-  <mat-form-field 
-    appearance="fill" 
-    color="accent"
-    style="text-align: center; color: black"
-    >
-    <input matInput type="password" placeholder="Insira sua senha" formControlName="password" required /><br />
-    <div *ngIf="formLogin.controls['password'].touched">
-      <small
-        *ngIf="formLogin.controls['password'].hasError('required')"
-        style="color: pink"
-        >A senha é obirgatória!</small
+        <input
+          matInput
+          formControlName="email"
+          class="form-control"
+          placeholder="Insira seu email"
+          required
+        /><br />
+        <div *ngIf="formLogin.controls['email'].touched">
+          <small
+            *ngIf="formLogin.controls['email'].hasError('required')"
+            style="color: pink"
+            >O email é obrigatório!
+          </small>
+          <small
+            *ngIf="formLogin.controls['email'].hasError('email')"
+            style="color: pink"
+            >Email inválido!</small
+          >
+        </div>
+      </mat-form-field>
+      <mat-card-header>
+        <mat-card-title>Senha</mat-card-title>
+      </mat-card-header>
+      <mat-form-field
+        appearance="fill"
+        color="accent"
+        style="text-align: center; color: black"
       >
-      <small
-        *ngIf="formLogin.controls['password'].hasError('minlength')"
-        style="color: pink"
-        >Senha pequena demais!</small
-      >
-    </div> 
-  </mat-form-field>
-</div>
-  <br />
+        <input
+          matInput
+          type="password"
+          placeholder="Insira sua senha"
+          formControlName="password"
+          required
+        /><br />
+        <div *ngIf="formLogin.controls['password'].touched">
+          <small
+            *ngIf="formLogin.controls['password'].hasError('required')"
+            style="color: pink"
+            >A senha é obirgatória!</small
+          >
+          <small
+            *ngIf="formLogin.controls['password'].hasError('minlength')"
+            style="color: pink"
+            >Senha pequena demais!</small
+          >
+        </div>
+      </mat-form-field>
+      <br />
+      <button type="submit">Login</button><br />
+    </form>
+  </div>
   <div style="text-align: center">
-    <button type="submit">Login</button><br>
-    <button (click)="logarComGoogleCount()" style="background-color: rgb(196, 183, 101)">
+    <button
+      (click)="logarComGoogleCount()"
+      style="background-color: rgb(196, 183, 101)"
+    >
       Logar com Conta Google</button
     ><br />
-    <button (click)="logarComFacebook()" style="background-color: rgb(112, 112, 221)">
+    <button
+      (click)="logarComFacebook()"
+      style="background-color: rgb(112, 112, 221)"
+    >
       Logar com Facebook</button
     ><br />
     <button
