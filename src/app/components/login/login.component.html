@@ -1,43 +1,78 @@
 <body>
+  <div>
     <mat-toolbar color="primary">Login</mat-toolbar>
-    <form [formGroup]="formLogin" (ngSubmit)="submitForm()">
-      <mat-card-header>
-        <mat-card-title>Email</mat-card-title>
-      </mat-card-header>
-      <input text="text" formControlName="email" required /><br />
-      <div *ngIf="formLogin.controls['email'].touched">
-        <small
-          *ngIf="formLogin.controls['email'].hasError('required')"
-          style="color: pink"
-          >O email é obrigatório!
-        </small>
-        <small
-          *ngIf="formLogin.controls['email'].hasError('email')"
-          style="color: pink"
-          >Email inválido!</small
-        >
-      </div>
-      <mat-card-header>
-        <mat-card-title>Senha</mat-card-title>
-      </mat-card-header>
-      <input type="password" formControlName="password" required /><br />
-      <div *ngIf="formLogin.controls['password'].touched">
-        <small
-          *ngIf="formLogin.controls['password'].hasError('required')"
-          style="color: pink"
-          >A senha é obirgatória!</small
-        >
-        <small
-          *ngIf="formLogin.controls['password'].hasError('minlength')"
-          style="color: pink"
-          >Senha pequena demais!</small
-        >
-      </div>
-      <button type="submit">Login</button>
-    </form>
-    <button (click)="logarComGoogleCount()" style="background-color: aqua;">Logar com Conta Google</button><br>
-    <button (click)="logarComFacebook()" style="background-color: blue;">Logar com Facebook</button><br>
-    <button (click)="logarComGithub()" style="background-color: black;color:white">Logar com Github</button><br>
+  </div>
+  <div class="aux">
+  <mat-card-header>
+    <mat-card-title>Email</mat-card-title>
+  </mat-card-header>
+  <mat-form-field
+    appearance="fill"
+    [formGroup]="formLogin"
+    (ngSubmit)="submitForm()"
+    style="text-align: center; color: black"
+    
+  >
+    <input
+      matInput
+      formControlName="email"
+      class="form-control"
+      placeholder="Insira seu email"
+      required
+    /><br />
+    <div *ngIf="formLogin.controls['email'].touched">
+      <small
+        *ngIf="formLogin.controls['email'].hasError('required')"
+        style="color: pink"
+        >O email é obrigatório!
+      </small>
+      <small
+        *ngIf="formLogin.controls['email'].hasError('email')"
+        style="color: pink"
+        >Email inválido!</small
+      >
+    </div>
+  </mat-form-field>
+</div>
+<div class="aux">
+  <mat-card-header>
+    <mat-card-title>Senha</mat-card-title>
+  </mat-card-header>
+  <mat-form-field 
+    appearance="fill" 
+    color="accent"
+    style="text-align: center; color: black"
+    >
+    <input matInput type="password" placeholder="Insira sua senha" formControlName="password" required /><br />
+    <div *ngIf="formLogin.controls['password'].touched">
+      <small
+        *ngIf="formLogin.controls['password'].hasError('required')"
+        style="color: pink"
+        >A senha é obirgatória!</small
+      >
+      <small
+        *ngIf="formLogin.controls['password'].hasError('minlength')"
+        style="color: pink"
+        >Senha pequena demais!</small
+      >
+    </div> 
+  </mat-form-field>
+</div>
+  <br />
+  <div style="text-align: center">
+    <button type="submit">Login</button><br>
+    <button (click)="logarComGoogleCount()" style="background-color: rgb(196, 183, 101)">
+      Logar com Conta Google</button
+    ><br />
+    <button (click)="logarComFacebook()" style="background-color: rgb(112, 112, 221)">
+      Logar com Facebook</button
+    ><br />
+    <button
+      (click)="logarComGithub()"
+      style="background-color: black; color: white"
+    >
+      Logar com Github</button
+    ><br />
     <a routerLink="/cadastro">Não tem cadastro? Clique aqui</a>
-  </body>
-  
+  </div>
+</body>

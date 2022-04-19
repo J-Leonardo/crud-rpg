@@ -27,7 +27,6 @@
       <th>Secundaria</th>
       <th>Magia</th>
       <th>Orientação</th>
-      <th>Orientação 2</th>
       <th>Equipamento</th>
       <th>Operação</th>
     </tr>
@@ -38,8 +37,7 @@
       <td>{{ personagem.principal }}</td>
       <td>{{ personagem.secundaria }}</td>
       <td>{{ personagem.magia }}</td>
-      <td>{{ personagem.orientacao }}</td>
-      <td>{{ personagem.orientacao2 }}</td>
+      <td>{{ personagem.orientacao }} e {{ personagem.orientacao2 }}</td>
       <td>{{ personagem.equipamento }}</td>
       <td>
         <button (click)="editar(personagem)" mat-mini-fab color="accent">
